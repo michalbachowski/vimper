@@ -58,13 +58,6 @@ endif
 filetype plugin on
 let g:pydiction_location = "$HOME/.vim/complete-dict"
 
-" Tlist (right column)
-let Tlist_Use_Right_Window=1
-let Tlist_Auto_Open=1
-let Tlist_Exit_OnlyWindow=1
-let Tlist_Ctags_Cmd='/usr/bin/ctags'
-let Tlist_File_Fold_Auto_Close = 1
-
 " Searching
 set hlsearch
 set incsearch
@@ -81,6 +74,12 @@ set directory=~/.vim/backup
 
 " Status bar
 set laststatus=2
+
+" Powerline (status bar)
+set encoding=utf-8
+set nocompatible   " Disable vi-compatibility
+let g:Powerline_symbols = 'fancy'
+set t_Co=256
 
 " Cursor line
 set cursorline
@@ -120,6 +119,7 @@ map <Leader><Leader> :ZoomWin<CR>
 
 " CTags
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
+
 "Toggle Tags List
 nmap <C-C> :execute 'TlistToggle' <CR>
 let Tlist_Use_Right_Window = 1
@@ -161,6 +161,9 @@ autocmd BufWinEnter *.py,*.txt,*.rst,*.c,*.cpp let w:m2=matchadd('ErrorMsg', '\%
 
 " Remove whitespaces ...
 nmap <silent> <leader>ww :%s/\s\+$//e<CR> :echo "Whitespace removed"<CR>
+
+" tagbar
+nmap <F8> :TagbarToggle<CR>
 
 "  move text and rehighlight -- vim tip_id=224
 vnoremap > ><CR>gv
