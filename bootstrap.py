@@ -59,7 +59,6 @@ VIM_PLUGINS = {
     'jslint':         'git://github.com/hallettj/jslint.vim.git',
     'matchit':        'https://github.com/vim-scripts/matchit.zip.git',
     'nerdcommenter':  'git://github.com/scrooloose/nerdcommenter.git',
-    'nerdtree':       'git://github.com/scrooloose/nerdtree.git',
     'nginx':          'git://github.com/vim-scripts/nginx.vim.git',
     'nmap-syntax':    'git://github.com/vim-scripts/Nmap-syntax-highlight.git',
     'pyflakes':       'git://github.com/vim-scripts/pyflakes.vim.git',
@@ -71,11 +70,13 @@ VIM_PLUGINS = {
     'yankring':       'git://github.com/vim-scripts/YankRing.vim.git',
     'web-indent':     'git://github.com/lukaszb/vim-web-indent.git',
     'zoomwin':        'git://github.com/vim-scripts/ZoomWin.git',
+    'tagbar':         'git://github.com/vim-scripts/Tagbar.git',
+    'powerline':      'git://github.com/Lokaltog/vim-powerline.git',
 }
 
 # OSX Changes
 if sys.platform == 'darwin':
-    VIM_PLUGINS['nerdtree'] = 'git://github.com/lukaszb/nerdtree.git'
+    pass
 
 def run_cmd(cmd, stdout=None, stderr=None, cwd=None, shell=None):
     if stdout is None:
