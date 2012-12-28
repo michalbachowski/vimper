@@ -1,10 +1,10 @@
 #!/usr/bin/env python
-import os
-import sys
-import shutil
-import datetime
 from contrib import logger
 from subprocess import Popen, PIPE
+import datetime
+import os
+import shutil
+import sys
 
 abspath = lambda *p: os.path.abspath(os.path.join(*p))
 now = datetime.datetime.now()
@@ -47,28 +47,38 @@ def redefine_links():
 
 VIM_PLUGINS = {
     'ack':            'git://github.com/vim-scripts/ack.vim.git',
+    'clojure':        'git://github.com/vim-scripts/VimClojure.git',
     'closetag':       'git://github.com/vim-scripts/closetag.vim.git',
+    'cocoa':          'git://github.com/vim-scripts/cocoa.vim.git',
     'coffee-script':  'git://github.com/kchmck/vim-coffee-script.git',
     'color-sampler':  'git://github.com/vim-scripts/Color-Sampler-Pack.git',
     'commandt':       'git://github.com/wincent/Command-T.git',
+    'ctrlp':          'git://github.com/kien/ctrlp.vim.git',
+    'easy-motion':    'git://github.com/vim-scripts/EasyMotion.git',
     'fugitive':       'git://github.com/tpope/vim-fugitive.git',
     'git':            'git://github.com/tpope/vim-git.git',
     'gundo':          'http://github.com/sjl/gundo.vim.git',
+    'hemisu':         'git://github.com/noahfrederick/Hemisu.git',
     'ir_black':       'git://github.com/lukaszb/vim-irblack.git',
     'wombat256mod':   'git://github.com/michalbachowski/vim-wombat256mod.git',
+    'jinja':          'git://github.com/vim-scripts/Jinja.git',
     'jslint':         'git://github.com/hallettj/jslint.vim.git',
     'matchit':        'https://github.com/vim-scripts/matchit.zip.git',
     'nerdcommenter':  'git://github.com/scrooloose/nerdcommenter.git',
     'nginx':          'git://github.com/vim-scripts/nginx.vim.git',
     'nmap-syntax':    'git://github.com/vim-scripts/Nmap-syntax-highlight.git',
     'pyflakes':       'git://github.com/kevinw/pyflakes-vim.git',
+    'powerline':      'https://github.com/Lokaltog/vim-powerline.git',
+    'python-mode':    'git://github.com/klen/python-mode.git',
+    'selfdot':        'git://github.com/narfdotpl/selfdot.vim.git',
+    'singlecompile':  'git://github.com/xuhdev/SingleCompile.git',
     'snipmate':       'git://github.com/lukaszb/snipmate.vim.git',
     'solarized':      'git://github.com/altercation/vim-colors-solarized.git',
+    'superpy':        'git://github.com/lukaszb/superpy.git',
     'supertab':       'git://github.com/ervandew/supertab.git',
     'surround':       'git://github.com/tpope/vim-surround.git',
     'taglist':        'git://github.com/vim-scripts/taglist.vim.git',
     'yankring':       'git://github.com/vim-scripts/YankRing.vim.git',
-    'web-indent':     'git://github.com/lukaszb/vim-web-indent.git',
     'zoomwin':        'git://github.com/vim-scripts/ZoomWin.git',
     'tagbar':         'git://github.com/vim-scripts/Tagbar.git',
     'powerline':      'git://github.com/Lokaltog/vim-powerline.git',

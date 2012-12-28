@@ -6,6 +6,7 @@ endif
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
+" Basic
 syntax on
 set nu
 colorscheme wombat256mod
@@ -14,7 +15,12 @@ set background=dark
 "Default mapping
 nnoremap ' `
 nnoremap ` '
+nmap ; :
 let mapleader=','
+
+"More natural moving cursor between editor rows
+map j gj
+map k gk
 
 " numbering
 set ruler
@@ -72,6 +78,11 @@ set wildignore+=*.o,*.obj,*.rbc,.git,.hg,.svn,.bzr,*.pyc
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 
+" ... which we actually won't use
+set nobackup
+set nowritebackup
+set noswapfile
+
 " Status bar
 set laststatus=2
 
@@ -111,8 +122,12 @@ nnoremap <Leader>GR :diffget RE <CR>
 " This is likely a bludgeon to solve some other issue, but it works
 set noequalalways
 
-" Command-T settings
+" Command-T settings and mapping
 let CommandTMaxHeight=20
+nmap <Leader>f :CommandTFlush <CR>
+
+" cope (Error list)
+nnoremap <Leader>E :cope <CR>
 
 " ZoomWin configuration
 map <Leader><Leader> :ZoomWin<CR>
@@ -144,6 +159,9 @@ if has("autocmd")
 endif
 
 
+"auto set proper filetypes
+autocmd BufRead,BufNewFile *.kv set ft=kivy
+
 "autocmd FileType python compiler pylint
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
@@ -158,6 +176,7 @@ autocmd BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,config.ru}    set ft=ruby
 
 " Error marker at ~80 character
 autocmd BufWinEnter *.py,*.txt,*.rst,*.c,*.cpp let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+set colorcolumn=81
 
 " Remove whitespaces ...
 nmap <silent> <leader>ww :%s/\s\+$//e<CR> :echo "Whitespace removed"<CR>
@@ -168,6 +187,7 @@ nmap <F8> :TagbarToggle<CR>
 "  move text and rehighlight -- vim tip_id=224
 vnoremap > ><CR>gv
 vnoremap < <<CR>gv 
+
 nmap <D-]> >>
 vmap <D-]> >>
 imap <D-]> <C-O>>>
@@ -179,13 +199,20 @@ imap <D-[> <C-O><<
 nmap <silent> <leader>ee :e $MYVIMRC<CR>
 nmap <silent> <leader>er :so $MYVIMRC<CR>
 
+" Automatic reloading of .vimrc
+autocmd! bufwritepost $MYVIMRC source %
+
 " Simple Python/Ruby/Shell scripts running
+autocmd FileType coffee map <buffer> <Leader>rr :w<CR>:new<CR>:r!/usr/bin/env coffee # <CR>
+autocmd FileType coffee map <buffer> <Leader>R :w<CR>:!/usr/bin/env coffee %<CR>
 autocmd FileType python map <buffer> <Leader>rr :w<CR>:new<CR>:r!/usr/bin/env python # <CR>
 autocmd FileType python map <buffer> <Leader>R :w<CR>:!/usr/bin/env python %<CR>
 autocmd FileType ruby map <buffer> <Leader>rr :w<CR>:new<CR>:r!/usr/bin/env ruby # <CR>
 autocmd FileType ruby map <buffer> <Leader>R :w<CR>:!/usr/bin/env ruby % <CR>
 autocmd FileType sh map <buffer> <Leader>rr :w<CR>:new<CR>:r!/usr/bin/env sh # <CR>
 autocmd FileType sh map <buffer> <Leader>R :w<CR>:!/usr/bin/env sh % <CR>
+autocmd FileType javascript map <buffer> <Leader>rr :w<CR>:new<CR>:r!/usr/bin/env node # <CR>
+autocmd FileType javascript map <buffer> <Leader>R :w<CR>:!/usr/bin/env node % <CR>
 
 source ~/.vim/conf/django
 
@@ -206,13 +233,58 @@ if filereadable(expand("~/.vimrc.local"))
 endif
 
 " Gundo.vim
+set history=500
+set undolevels=500
 let g:gundo_right = 1
 nnoremap <C-H> :GundoToggle<CR>
 
 " ack.vim
-nmap <silent> <unique> <Leader>aa :Ack 
-nmap <silent> <unique> <Leader>ag :Ack -g 
+nmap <silent> <Leader>aa :Ack
+nmap <silent> <Leader>ag :Ack -g
 
 " Let JSLint use node
 let $JS_CMD='node'
+
+" python-mode
+let g:pymode_folding = 0
+
+" General actions
+vnoremap <Leader>s :sort<CR>
+
+" easier formatting paragraphs
+vmap Q gq
+nmap Q gqap " standard qa Around Paragraph
+
+" easier moving around windows
+
+map <C-Down> <C-w>j
+map <C-Up> <C-w>k
+map <C-Left> <C-w>h
+map <C-Right> <C-w>l
+
+" ==============================================================================
+" Python-Mode
+" ==============================================================================
+
+let g:pymode_options = 0
+let g:pymode_syntax = 0
+let g:pymode_rope_guess_project = 1
+
+let g:pymode_rope = 1
+let g:pymode_rope_auto_project = 1
+let g:pymode_rope_enable_autoimport = 1
+let g:pymode_rope_autoimport_generate = 1
+let g:pymode_rope_autoimport_modules = ["os","shutil","datetime"]
+let g:pymode_rope_vim_completion = 1
+let g:pymode_rope_goto_def_newwin = "tabnew"
+
+let g:pymode_lint = 0
+
+map <C-g> :RopeGotoDefinition<CR>
+
+" ==============================================================================
+" SingleCompile
+" ==============================================================================
+nmap <F9> :SCCompile<cr>
+nmap <F10> :SCCompileRun<cr>
 
