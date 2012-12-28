@@ -100,7 +100,7 @@ def get_plugin(name, uri):
             run_cmd('git pull origin master', cwd=dst)
         else:
             logger.debug("Cloning %s => %s" % (uri, dst))
-            run_cmd('git clone %s %s' % (uri, dst))
+            run_cmd('git clone --recursive %s %s' % (uri, dst))
 
 def post_actions():
     # Command-T
