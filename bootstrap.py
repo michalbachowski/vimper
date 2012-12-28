@@ -61,7 +61,7 @@ VIM_PLUGINS = {
     'nerdcommenter':  'git://github.com/scrooloose/nerdcommenter.git',
     'nginx':          'git://github.com/vim-scripts/nginx.vim.git',
     'nmap-syntax':    'git://github.com/vim-scripts/Nmap-syntax-highlight.git',
-    'pyflakes':       'git://github.com/vim-scripts/pyflakes.vim.git',
+    'pyflakes':       'git://github.com/kevinw/pyflakes-vim.git',
     'snipmate':       'git://github.com/lukaszb/snipmate.vim.git',
     'solarized':      'git://github.com/altercation/vim-colors-solarized.git',
     'supertab':       'git://github.com/ervandew/supertab.git',
