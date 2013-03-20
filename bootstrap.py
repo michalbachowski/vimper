@@ -118,7 +118,7 @@ def post_actions():
     src_dir = abspath(COMMANDT_DIR, 'ruby', 'command-t')
     cmd = '%s extconf.rb' % RUBY_BIN
     run_cmd(cmd, cwd=src_dir, stdout=PIPE, stderr=PIPE)
-    run_cmd('make clean && make', cwd=src_dir)
+    run_cmd('make clean && make', cwd=COMMANDT_DIR)
 
 
 def main():
