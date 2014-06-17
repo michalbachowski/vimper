@@ -58,11 +58,11 @@ if has("autocmd")
     autocmd FileType ruby   set ts=2 sw=2               " Ruby
     autocmd FileType c,cpp  set ts=4 sw=4 cindent       " C & C++
     autocmd FileType docbk,html,xhtml,xml set ts=2 sw=2 " DocBook, HTML, XHT    ML, and XMLautocmd FileType python set complete+=k/path/to/pydiction iskeyword+=.,(
-    autocmd FileType python set complete+=k/home/merlin/.vim/pydiction.py iskeyword+=.,(
+    "autocmd FileType python set complete+=k/home/merlin/.vim/pydiction.py iskeyword+=.,(
 endif
 
 filetype plugin on
-let g:pydiction_location = "$HOME/.vim/complete-dict"
+"let g:pydiction_location = "$HOME/.vim/complete-dict"
 
 " Searching
 set hlsearch
@@ -89,7 +89,7 @@ set laststatus=2
 " Powerline (status bar)
 set encoding=utf-8
 set nocompatible   " Disable vi-compatibility
-let g:Powerline_symbols = 'fancy'
+let g:Powerline_symbols = 'unicode'
 set t_Co=256
 
 " Cursor line
@@ -163,7 +163,7 @@ endif
 autocmd BufRead,BufNewFile *.kv set ft=kivy
 
 "autocmd FileType python compiler pylint
-autocmd FileType python set omnifunc=pythoncomplete#Complete
+"autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType html set filetype=htmldjango " For SnipMate
@@ -171,7 +171,7 @@ autocmd BufEnter *.json set filetype=javascript
 autocmd BufEnter *.html set ft=htmldjango
 autocmd BufEnter *.html source ~/.vim/bundle/closetag/plugin/closetag.vim
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-"autocmd BufWritePre *.py :%s/\s\+$//e
+autocmd BufWritePre *.py :%s/\s\+$//e
 autocmd BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,config.ru}    set ft=ruby
 
 " Error marker at ~80 character
@@ -275,7 +275,7 @@ let g:pymode_rope_auto_project = 1
 let g:pymode_rope_enable_autoimport = 1
 let g:pymode_rope_autoimport_generate = 1
 let g:pymode_rope_autoimport_modules = ["os","shutil","datetime"]
-let g:pymode_rope_vim_completion = 1
+"let g:pymode_rope_vim_completion = 1
 let g:pymode_rope_goto_def_newwin = "tabnew"
 
 let g:pymode_lint = 0

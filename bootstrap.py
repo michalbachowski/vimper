@@ -82,6 +82,7 @@ VIM_PLUGINS = {
     'zoomwin':        'git://github.com/vim-scripts/ZoomWin.git',
     'tagbar':         'git://github.com/vim-scripts/Tagbar.git',
     'powerline':      'git://github.com/Lokaltog/vim-powerline.git',
+    'jedi':           'git://github.com/davidhalter/jedi-vim.git',
 }
 
 # OSX Changes
