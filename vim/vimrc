@@ -178,7 +178,8 @@ autocmd BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,config.ru}    set ft=ruby
 autocmd BufWinEnter *.py,*.txt,*.rst,*.c,*.cpp let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 
 if exists("&colorcolumn")
-    set colorcolumn=81
+    execute "set colorcolumn=" . join(range(81,335), ',')
+    highlight ColorColumn ctermbg=235 guibg=#2c2d27
 endif
 
 " Remove whitespaces ...
