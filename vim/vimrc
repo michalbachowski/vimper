@@ -288,3 +288,8 @@ map <C-g> :RopeGotoDefinition<CR>
 nmap <F9> :SCCompile<cr>
 nmap <F10> :SCCompileRun<cr>
 
+"insert and remove comments in visual and normal mode
+vmap ,ic :s/^/#/g<CR>:let @/ = ""<CR>
+map  ,ic :s/^/#/g<CR>:let @/ = ""<CR>
+vmap ,rc :s/^#//g<CR>:let @/ = ""<CR>
+map  ,rc :s/^#//g<CR>:let @/ = ""<CR>
