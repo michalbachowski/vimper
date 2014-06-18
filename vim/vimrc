@@ -174,6 +174,8 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd BufWritePre *.py :%s/\s\+$//e
 autocmd BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,config.ru}    set ft=ruby
 
+let g:syntastic_python_checkers = ['pylint']
+
 " Error marker at ~80 character
 autocmd BufWinEnter *.py,*.txt,*.rst,*.c,*.cpp let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 

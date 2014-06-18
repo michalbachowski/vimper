@@ -80,6 +80,7 @@ VIM_PLUGINS = {
     'superpy':        'git://github.com/lukaszb/superpy.git',
     'supertab':       'git://github.com/ervandew/supertab.git',
     'surround':       'git://github.com/tpope/vim-surround.git',
+    'syntastic':      'git://github.com/scrooloose/syntastic.git',
     'taglist':        'git://github.com/vim-scripts/taglist.vim.git',
     'tlib':           'git://github.com/tomtom/tlib_vim.git',
     'yankring':       'git://github.com/vim-scripts/YankRing.vim.git',
